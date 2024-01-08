@@ -1,0 +1,55 @@
+#gform_wrapper_1 {
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="password"],
+    textarea,
+    select {
+        border: 1px solid #EEEEEE;
+        border-radius: 8px;
+        height: 40px;
+        padding: 10px;
+        width: 100%;
+
+        &::placeholder {
+            color: #B0B0B0;
+        }
+    }
+
+    select {
+        color: #B0B0B0;
+    }
+
+    .gfield_label {
+        font-size: 16px;
+        color: #021959;
+        font-weight: 600;
+    }
+
+    .gfield_required {
+        color: #F56C6C !important;
+    }
+
+    .gform_required_legend {
+        display: none;
+    }
+
+    input[type="submit"] {
+        height: 50px;
+        transition: all 0.3s ease;
+        width: fit-content;
+        background-color: #266DF7;
+        color: #ffffff;
+        text-transform: uppercase;
+        padding: 0 30px;
+        border-radius: 30px;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+    .gform_footer {
+        padding-bottom: 0;
+    }
+}

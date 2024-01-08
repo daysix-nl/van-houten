@@ -1,0 +1,113 @@
+.hover-dropdown {
+    svg {
+        transition: all 0.3s ease;
+    }
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    z-index: 1000;
+}
+
+.hover-dropdown:hover {
+    .dropdown-menu {
+        display: block;
+    }
+
+    svg {
+        transform: rotate(180deg);
+    }
+}
+
+.button-hamburger {
+    width: 29px;
+    height: 29px;
+
+    svg {
+        &:nth-of-type(1) {
+            display: block;
+        }
+
+        &:nth-of-type(2) {
+            display: none;
+        }
+    }
+
+    &.button-hamburger--active {
+        svg {
+            &:nth-of-type(1) {
+                display: none;
+            }
+
+            &:nth-of-type(2) {
+                display: block;
+            }
+        }
+    }
+}
+
+.menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+
+    a,
+    .accordion-item {
+        border-bottom: 1px solid #EEEEEE;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &.menu--active {
+        transform: translateX(0);
+    }
+}
+
+.accordion-item {
+
+
+    .accordion {
+        cursor: pointer;
+        width: 100%;
+        transition-delay: .2s;
+        transition-property: border-radius, background-color, color;
+        transition-duration: .2s;
+
+
+        &::after {
+            content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="13.333" viewBox="0 0 20 13.333"><path id="Fill_1" data-name="Fill 1" d="M1.2,0,0,1.426,10.4,10,0,18.574,1.2,20l12.13-10Z" transform="translate(20) rotate(90)" fill="%2334848f"/></svg>');
+            margin-left: auto;
+            transition: .3s;
+            display: block;
+            transform-origin: center;
+        }
+
+        &.active {
+
+            transition-delay: 0s;
+            transition: 0s;
+
+            &::after {
+                transform: rotate(180deg);
+
+            }
+        }
+    }
+
+    .panel {
+        transition: height .2s ease-out;
+
+        a {
+            border: unset;
+        }
+    }
+}
