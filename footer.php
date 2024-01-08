@@ -12,15 +12,25 @@
             <div class="col-span-1">
                 <h4 class="text-lightBlue text-14 lg:text-14 leading-26 font-bold uppercase">INFORMATIE</h4>
                 <nav class="mt-1 flex flex-col">
-                    <a class="text-white text-14 lg:text-14 leading-26" href="">Over ons</a>
-                    <a class="text-white text-14 lg:text-14 leading-26" href="">Openingstijden</a>
-                    <a class="text-white text-14 lg:text-14 leading-26" href="">Nota</a>
-                    <a class="text-white text-14 lg:text-14 leading-26" href="">Afspraak maken</a>
-                    <a class="text-white text-14 lg:text-14 leading-26" href="">Aanmelden</a>
+                    <?php
+                    if( have_rows('footer_menu_repeater', 'option') ):
+                        while( have_rows('footer_menu_repeater', 'option') ) : the_row(); ?>
+                        <?php
+                        $link = get_sub_field('menu_item', 'option');
+                        $link_url = isset($link['url']) ? esc_url($link['url']) : '';
+                        $link_text = isset($link['title']) ? esc_html($link['title']) : '';
+                        $link_target = isset($link['target']) ? esc_attr($link['target']) : '';
+                        ?>
+                        <a class="text-white text-14 lg:text-14 leading-26" href="<?php echo $link_url; ?>" target="<?php echo $link_target; ?>"><?php echo $link_text; ?></a>
+                        <?php
+                        endwhile;
+                    else :
+                    endif;
+                    ?>
                 </nav>
             </div>
             <div class="col-span-1">
-                <h4 class="text-lightBlue text-14 lg:text-14 leading-26 font-bold uppercase">BEHANDELINGEN</h4>
+                <h4 class="text-lightBlue text-14 lg:text-14 leading-26 font-bold uppercase"><?php the_field('menu_item_3', 'option');?></h4>
                 <nav class="mt-1 flex flex-col">
                     <?php
                         $loop = new WP_Query( array(
@@ -34,7 +44,6 @@
                     <?php while ( $loop->have_posts() ) : $loop->the_post(); $post_id = get_the_ID(); ?>
                     <a class="text-white text-14 lg:text-14 leading-26" href="<?php the_permalink();?>"><?php the_title();?></a>
                     <?php endwhile; wp_reset_query(); ?>
-                    <a class="text-white text-14 lg:text-14 leading-26" href="">Tarieven</a>
                 </nav>
             </div>
             <div class="col-span-1">
@@ -60,7 +69,7 @@
                 <p  class="text-white text-13  lg:text-14 leading-26">© <?= date("Y") ?>. P. van Houten Tandheelkundig Centrum Uithoorn</p>
             </div>
             <div class="col-span-1">
-                <p  class="text-white text-13  lg:text-14 leading-26">Privacy Statement  -  Algemene voorwaarden</p>
+                <a href="/algemene-voorwaarden" class="text-white text-13  lg:text-14 leading-26">Algemene voorwaarden</a>
             </div>
         </div>
     </section>

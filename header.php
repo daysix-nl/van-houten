@@ -30,12 +30,36 @@
                     <img class="w-full max-w-[134px] lg:max-w-[216px] opacity-100 h-auto" src="<?php echo get_template_directory_uri(); ?>/img/local/logo.png" alt="logo">
                 </a>
             </div>
+            <?php
+            $link = get_field('menu_item_1', 'option');
+            $link_url = isset($link['url']) ? esc_url($link['url']) : '';
+            $link_text = isset($link['title']) ? esc_html($link['title']) : '';
+            $link_target = isset($link['target']) ? esc_attr($link['target']) : '';
+            ?>
+            <?php
+            $link2 = get_field('menu_item_2', 'option');
+            $link2_url = isset($link2['url']) ? esc_url($link2['url']) : '';
+            $link2_text = isset($link2['title']) ? esc_html($link2['title']) : '';
+            $link2_target = isset($link2['target']) ? esc_attr($link2['target']) : '';
+            ?>
+            <?php
+            $link3 = get_field('menu_item_4', 'option');
+            $link3_url = isset($link3['url']) ? esc_url($link3['url']) : '';
+            $link3_text = isset($link3['title']) ? esc_html($link3['title']) : '';
+            $link3_target = isset($link3['target']) ? esc_attr($link3['target']) : '';
+            ?>
+            <?php
+            $link4 = get_field('menu_item_5', 'option');
+            $link4_url = isset($link4['url']) ? esc_url($link4['url']) : '';
+            $link4_text = isset($link4['title']) ? esc_html($link4['title']) : '';
+            $link4_target = isset($link4['target']) ? esc_attr($link4['target']) : '';
+            ?>
             <nav class="space-x-5  items-center hidden lg:flex">
-                <a class="uppercase text-16 font-medium leading-20 text-blue" href="/">Home</a>
-                <a class="uppercase text-16 font-medium leading-20 text-blue" href="/over-ons">Over ons</a>
+                <a class="uppercase text-16 font-medium leading-20 text-blue" href="<?php echo $link_url; ?>"><?php echo $link_text; ?></a>
+                <a class="uppercase text-16 font-medium leading-20 text-blue" href="<?php echo $link2_url; ?>"><?php echo $link2_text; ?></a>
                 <div class="relative hover-dropdown">
                     <button class="uppercase text-16 font-medium leading-20 text-blue flex space-x-[15px] items-center">
-                        <span>BEHANDELINGEN </span>
+                        <span><?php the_field('menu_item_3', 'option');?></span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="10" viewBox="0 0 15 10">
                             <path id="Fill_1" data-name="Fill 1" d="M.9,0,0,1.07,7.8,7.5,0,13.93.9,15,10,7.5Z" transform="translate(15) rotate(90)" fill="#34848f"/>
                         </svg>
@@ -55,8 +79,8 @@
                         <?php endwhile; wp_reset_query(); ?>
                     </ul>
                 </div>
-                <a class="uppercase text-16 font-medium leading-20 text-blue" href="/nota">NOTA</a>
-                <a class="uppercase text-16 font-medium leading-20 text-white h-4 w-[123px] bg-lightBlue rounded-3xl flex justify-center items-center" href="/contact">CONTACT</a>
+                <a class="uppercase text-16 font-medium leading-20 text-blue" href="<?php echo $link3_url; ?>"><?php echo $link3_text; ?></a>
+                <a class="uppercase text-16 font-medium leading-20 text-white h-4 w-[123px] bg-lightBlue rounded-3xl flex justify-center items-center" href="<?php echo $link4_url; ?>"><?php echo $link4_text; ?></a>
 
             </nav>
             <button class="lg:hidden button-hamburger">
@@ -74,10 +98,10 @@
     </header>
 
     <div class="menu w-sreen h-[100dvh] bg-white pt-7 px-2 flex flex-col w-full z-50">
-        <a class="text-30 leading-60 font-medium text-blue uppercase" href="/">HOME</a>
-        <a class="text-30 leading-60 font-medium text-blue uppercase" href="/over-ons">OVER ONS</a>
+        <a class="text-30 leading-60 font-medium text-blue uppercase" href="<?php echo $link_url; ?>"><?php echo $link_text; ?></a>
+        <a class="text-30 leading-60 font-medium text-blue uppercase" href="<?php echo $link2_url; ?>"><?php echo $link2_text; ?></a>
         <div class="accordion-item"> 
-            <button class="text-30 leading-60 font-medium text-blue uppercase flex text-start accordion">BEHANDELINGEN</button>
+            <button class="text-30 leading-60 font-medium text-blue uppercase flex text-start accordion"><?php the_field('menu_item_3', 'option');?></button>
             <div class="panel overflow-hidden h-0 ">
                 <div class="pb-3 pl-2 flex flex-col">
                     <?php
@@ -95,7 +119,7 @@
                 </div>
             </div>
         </div>
-        <a  class="text-30 leading-60 font-medium text-blue uppercase"href="/nota">NOTA</a>
-        <a class="text-30 leading-60 font-medium text-blue uppercase" href="/contact">CONTACT</a>
+        <a  class="text-30 leading-60 font-medium text-blue uppercase"href="<?php echo $link3_url; ?>"><?php echo $link3_text; ?></a>
+        <a class="text-30 leading-60 font-medium text-blue uppercase" href="<?php echo $link4_url; ?>"><?php echo $link4_text; ?></a>
     </div>
 
