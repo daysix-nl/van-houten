@@ -69,7 +69,7 @@
                 <p  class="text-white text-13  lg:text-14 leading-26">© <?= date("Y") ?>. P. van Houten Tandheelkundig Centrum Uithoorn</p>
             </div>
             <div class="col-span-1">
-                <a href="/algemene-voorwaarden" class="text-white text-13  lg:text-14 leading-26">Algemene voorwaarden</a>
+                <a href="/privacyverklaring" class="text-white text-13  lg:text-14 leading-26">Privacyverklaring</a>
             </div>
         </div>
     </section>
