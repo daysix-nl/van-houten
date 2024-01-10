@@ -60,7 +60,7 @@ $image1_alt = isset($image1['alt']) ? esc_attr($image1['alt']) : '';
                     </div>
                     <div class="col-span-2 grid grid-cols-3 gap-1 ">
                         <div class="col-span-1">
-                            <span class="h-3 bg-lightBlue text-white flex justify-center items-center text-12 leading-12 lg:text-14 lg:leading-14 px-1 rounded-3xl">08:00-12:30</span>
+                            <span class="h-3 bg-lightBlue text-white flex justify-center items-center text-12 leading-12 lg:text-14 lg:leading-14 px-1 rounded-3xl">08:00-14:00</span>
                         </div>
                     </div>  
                 </div>
